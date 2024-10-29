@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAR Inventory Management System</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: black;
+            color: red;
+        }
+        .card {
+            background-color: #333;
+            color: red;
+        }
+        .form-control {
+            background-color: #222;
+            color: red;
+            border-color: #555;
+        }
+        .form-control::placeholder {
+            color: #777;
+        }
+        .btn-primary {
+            background-color: #900;
+            border-color: #900;
+        }
+        .btn-primary:hover {
+            background-color: #b00;
+            border-color: #b00;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">DAR Inventory</a>
+    </nav>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header text-center">
+                        <h3>Employee Login</h3>
+                    </div>
+                    <div class="card-body">
+                        <form id="loginForm">
+                            <div class="form-group">
+                                <label for="username">Username:</label>
+                                <input type="text" id="username" class="form-control" placeholder="Enter username" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password:</label>
+                                <input type="password" id="password" class="form-control" placeholder="Enter password" required>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary">Login</button>
+                            </div>
+                        </form>
+                        <div id="loginResult" class="text-center mt-3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $('#loginForm').on('submit', function(event) {
+            event.preventDefault();
+            const username = $('#username').val();
+            const password = $('#password').val();
+
+            if (username === "1337" && password === "1337") {
+                $('#loginResult').text('Login successful!').addClass('text-success');
+                $('#loginForm').hide();
+              
+                setTimeout(function() {
+                    window.location.href = "dashboard.html";
+                }, 1000);
+            } else {
+                $('#loginResult').text('Invalid username or password!').addClass('text-danger');
+            }
+        });
+    </script>
+</body>
+</html>
